@@ -1,0 +1,164 @@
+{
+  "method": "Chronological CASE-event-aware 60/20/20 by merged incident groups in each incident experiment; 60s embargo; normal experiment split 60/20/20 by time",
+  "counts": {
+    "train": {
+      "0": 344,
+      "1": 174
+    },
+    "val": {
+      "0": 77,
+      "1": 61
+    },
+    "test": {
+      "0": 266,
+      "1": 30
+    }
+  },
+  "removed_cross_split_events": [],
+  "features_10s": [
+    "bandwidth__mean",
+    "bandwidth__max",
+    "bandwidth__std",
+    "input-data-rate__mean",
+    "input-data-rate__max",
+    "input-data-rate__std",
+    "input-load__mean",
+    "input-load__max",
+    "input-load__std",
+    "input-packet-rate__mean",
+    "input-packet-rate__max",
+    "input-packet-rate__std",
+    "load-interval__mean",
+    "load-interval__max",
+    "load-interval__std",
+    "output-data-rate__mean",
+    "output-data-rate__max",
+    "output-data-rate__std",
+    "output-load__mean",
+    "output-load__max",
+    "output-load__std",
+    "output-packet-rate__mean",
+    "output-packet-rate__max",
+    "output-packet-rate__std",
+    "peak-input-data-rate__mean",
+    "peak-input-data-rate__max",
+    "peak-input-data-rate__std",
+    "peak-input-packet-rate__mean",
+    "peak-input-packet-rate__max",
+    "peak-input-packet-rate__std",
+    "peak-output-data-rate__mean",
+    "peak-output-data-rate__max",
+    "peak-output-data-rate__std",
+    "peak-output-packet-rate__mean",
+    "peak-output-packet-rate__max",
+    "peak-output-packet-rate__std"
+  ],
+  "baseline_majority": {
+    "validation": {
+      "macro_f1": 0.3581395348837209,
+      "anomaly_precision": 0.0,
+      "anomaly_recall": 0.0,
+      "anomaly_f1": 0.0,
+      "confusion_matrix_TN_FP_FN_TP": [
+        77,
+        0,
+        61,
+        0
+      ],
+      "support": {
+        "normal": 77,
+        "anomaly": 61
+      }
+    },
+    "test": {
+      "macro_f1": 0.47330960854092524,
+      "anomaly_precision": 0.0,
+      "anomaly_recall": 0.0,
+      "anomaly_f1": 0.0,
+      "confusion_matrix_TN_FP_FN_TP": [
+        266,
+        0,
+        30,
+        0
+      ],
+      "support": {
+        "normal": 266,
+        "anomaly": 30
+      }
+    }
+  },
+  "RF_10s": {
+    "validation": {
+      "macro_f1": 0.8525641025641026,
+      "anomaly_precision": 0.847457627118644,
+      "anomaly_recall": 0.819672131147541,
+      "anomaly_f1": 0.8333333333333334,
+      "confusion_matrix_TN_FP_FN_TP": [
+        68,
+        9,
+        11,
+        50
+      ],
+      "support": {
+        "normal": 77,
+        "anomaly": 61
+      }
+    },
+    "test": {
+      "macro_f1": 0.42184641250061805,
+      "anomaly_precision": 0.15217391304347827,
+      "anomaly_recall": 0.9333333333333333,
+      "anomaly_f1": 0.2616822429906542,
+      "confusion_matrix_TN_FP_FN_TP": [
+        110,
+        156,
+        2,
+        28
+      ],
+      "support": {
+        "normal": 266,
+        "anomaly": 30
+      }
+    }
+  },
+  "RF_60s_causal": {
+    "validation": {
+      "macro_f1": 0.8046602787456446,
+      "anomaly_precision": 0.8431372549019608,
+      "anomaly_recall": 0.7049180327868853,
+      "anomaly_f1": 0.7678571428571429,
+      "confusion_matrix_TN_FP_FN_TP": [
+        69,
+        8,
+        18,
+        43
+      ],
+      "support": {
+        "normal": 77,
+        "anomaly": 61
+      }
+    },
+    "test": {
+      "macro_f1": 0.5740401868992839,
+      "anomaly_precision": 0.21348314606741572,
+      "anomaly_recall": 0.6333333333333333,
+      "anomaly_f1": 0.31932773109243695,
+      "confusion_matrix_TN_FP_FN_TP": [
+        196,
+        70,
+        11,
+        19
+      ],
+      "support": {
+        "normal": 266,
+        "anomaly": 30
+      }
+    }
+  },
+  "limitations": [
+    "Same-session temporal evaluation, not cross-session generalization",
+    "CASE event windows are only a proxy for measured operational impact",
+    "All hyperparameter selection must use validation, not test",
+    "No MPLS L2VPN/L3VPN impact inference"
+  ]
+}
